@@ -1,0 +1,19 @@
+extends library_main
+block li
+ #myNavbar.collapse.navbar-collapse
+  ul.nav.navbar-nav
+   li.active
+    a(href='#',onclick="moveToHome()") Home
+   li
+    a(href='#', onclick="moveToLibrary()") Library
+   li
+    a(href='#',onclick="moveToAddBook()") Add Book
+    include script_change_page
+block website
+ .col-sm-8.text-left(style='margin-bottom: 20px;')
+  h1 Witamy
+  p
+   | Zapraszam do mojej prywatnej domowej biblioteki. 
+  hr
+  h3 Nowe Zbiory Dodane!
+  p Właśnie pojawiły się najnowsze zbiory książek. Zapraszam do oglądania.

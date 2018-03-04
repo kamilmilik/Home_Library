@@ -1,0 +1,124 @@
+doctype html
+html(lang='en')
+  head
+    title Library 
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    style.
+      /*.headTable{
+        text-align: center;
+      }*/
+      /* tabela dla Library */
+      table, th, td {
+       border: 1px solid black;
+       border-collapse: collapse;
+       padding: 15px;
+      }
+      /* Usunecie domyslnego marginesu i zaaokraglnych bokow */
+      .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+      }
+      /* Ustawinie wysokosci gridu */
+      .row.content>.website {height: 450px}
+      /* Kolory */
+      .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+      }
+      /* Stopka */
+      footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+      }
+      /* Ustawienia dla małych ekranow */
+      @media screen and (max-width: 767px) {
+      .sidenav {
+      height: auto;
+      padding: 15px;
+      }
+      .row.content {height:auto;}
+      }
+      /*ustawienia dla napisu na srodku obrazka na samej gorze */
+      .centered {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      }
+      /* przyciski po najecehaniu i wcisnieciu */
+      .navbar-inverse .navbar-nav>li>a:hover{
+      color:#000;
+      background-color:white;
+      }
+      /* zmiana przycisku po najechaniu */
+      .navbar-inverse .navbar-nav>.open>a:hover{
+      color:#000;
+      background-color:white;
+      }
+      /*zmiana aktywnego przycisku */
+      .navbar-inverse .navbar-nav>.active>a{
+      color: #fff;
+      }
+      /* zmienia kolor po ponownym wcisnieciu */
+      .navbar-inverse .navbar-nav>.active>a:focus{
+      color: #fff;
+      }
+      /*zmiana aktywnego przycisku po najechaniu */
+      .navbar-inverse .navbar-nav>.active>a:hover{
+      color:#000;
+      background-color:white;
+      }
+      /*formularz dodawania dla add book */
+      input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      input[type=submit] {
+        width: 100%;
+        background-color: #000;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      input[type=submit]:hover {
+        background-color: #242D3C;
+      }
+	  
+
+  body(data-spy='scroll', data-target='.navbar', data-offset='50')
+    .container-fluid.text-center(style='position: relative; color: white;')
+      .row.content
+        .col-sm-12.text-left(style='padding:0 0;background:  #242D3C ;height: 100px;')
+          //img.img-responsive(src='images/background_2.jpg', style='width:100%', alt='Image')
+          .text-center
+            .centered
+              h1 My Home Library
+    nav.navbar.navbar-inverse
+      .container-fluid
+        .navbar-header
+         button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        block li
+    .container-fluid.text-center
+      .row.content
+        .website
+         .col-sm-8.text-left(style='margin-bottom: 20px;')
+         block website
+    footer.container-fluid.text-center
+      p Copyright 2017  Kamil Milik - All Rights Reserved

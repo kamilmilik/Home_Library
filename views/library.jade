@@ -1,0 +1,51 @@
+extends library_main
+block li
+ #myNavbar.collapse.navbar-collapse
+  ul.nav.navbar-nav
+   li
+    a(href='#',onclick="moveToHome()") Home
+   li.active
+    a(href='#', onclick="moveToLibrary()") Library
+   li
+    a(href='#',onclick="moveToAddBook()") Add Book
+    include script_change_page
+block website
+ .col-sm-8.text-left(style='margin-bottom: 20px;')
+  h1 Witamy w Library
+  p
+   | Zapraszam do mojej prywatnej domowej biblioteki. 
+  hr 
+  div.table-responsive
+   table.table.table-hover(style='width:100%')
+    caption(align='top').headTable Aktualny Zbiór Książek W Domowej Bibliotece
+    thead
+     tr
+      th Tytuł
+      th Isbn
+      th Imie Autora
+      th Nazwisko Autora
+      th Rok Wydania
+      th Nazwa Wydawnictwa
+      th Nazwa Dziedziny
+      th Usuń
+     tbody
+      each item, index in library
+       tr
+        td #{item.Tytul} 
+        td #{item.Isbn} 
+        td #{item.ImieAutora} 
+        td #{item.NazwiskoAutora} 
+        td #{item.RokWydania} 
+        td #{item.NazwaWydawnictwa} 
+        td #{item.NazwaDziedziny}
+        td
+         form(method="POST" action="/delete_book", target='_self')
+          input(type='submit', value='Usuń Książkę')
+          <!--tutaj przesylam dane z tabelki do node jako ukryty formularz -->
+          input(type='hidden', name='title', value=item.Tytul) 
+          input(type='hidden', name='isbn', value=item.Isbn)
+          input(type='hidden', name='autorName', value=item.ImieAutora)
+          input(type='hidden', name='autorSurname', value=item.NazwiskoAutora)
+          input(type='hidden', name='year', value=item.RokWydania)
+          input(type='hidden', name='publisherName', value=item.NazwaWydawnictwa)
+          input(type='hidden', name='fieldName', value=item.NazwaDziedziny)

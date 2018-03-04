@@ -1,0 +1,40 @@
+﻿extends library_main
+block li
+ #myNavbar.collapse.navbar-collapse
+  ul.nav.navbar-nav
+   li
+    a(href='#',onclick="moveToHome()") Home
+   li
+    a(href='#', onclick="moveToLibrary()") Library
+   li.active
+    a(href='#',onclick="moveToAddBook()") Add Book
+    include script_change_page
+block website
+ .col-sm-8.text-left(style='margin-bottom: 20px;')
+  h1 Wpisz dane książki, którą chcesz dodać
+  p
+   form(method="POST" action="/add_book", target='_self')
+    | Tytuł książki: 
+    input(type='text', name='title')
+    br
+    | Numer Isbn: 
+    input(type='text', name='isbn')
+    br
+    | Imie autora książki: 
+    input(type='text', name='autorName')
+    br
+    | Nazwisko autora książki: 
+    input(type='text', name='autorSurname')
+    br
+    | Rok wydania książki: 
+    input(type='text', name='year')
+    br
+    | Nazwa wydawnictwa: 
+    input(type='text', name='publisherName')
+    br
+    | Nazwa dziedziny: 
+    input(type='text', name='fieldName')
+    br
+    input(type='submit', value='Zapisz')
+   p
+    | Kliknij przycisk zapisz, aby zapisać książkę do biblioteki.
